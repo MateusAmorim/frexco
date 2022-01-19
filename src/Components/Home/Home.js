@@ -59,19 +59,30 @@ const HomeDiv = styled.div`
       }
     }
     .produtos {
-      width: 80vw;
+      width: 95vw;
       display: flex;
       flex-direction: row;
       align-items: flex-start;
       justify-content: center;
       flex-wrap: wrap;
       .container {
-        border: 1px solid #000;
-        height: 350px;
-        width: 300px;
+        height: 700px;
+        width: 400px;
         margin: 20px;
         box-shadow: 0 4px 8px rgb(30 60 90 / 10%);
         border-radius: 5px;
+        padding: 10px;
+        animation: enter 0.3s;
+        @keyframes enter {
+          from {
+            opacity: 0;
+            transform: translate3d(0, -20px, 0);
+          }
+          to {
+            opacity: 1;
+            transform: translate3d(0, 0px, 0);
+          }
+        }
         transition: all 0.2s;
         cursor: pointer;
         &:hover {
@@ -79,6 +90,12 @@ const HomeDiv = styled.div`
           transform: scale(1.1);
           position: relative;
           z-index: 1;
+        }
+        img {
+          height: 80%;
+          width: 100%;
+        }
+        h1 {
         }
       }
     }
@@ -164,13 +181,13 @@ const Home = () => {
               </form>
             </div>
             <div className="produtos">
-              {alimentos.map(({ name, id }) => (
+              {alimentos.map(({ name, id, image }) => (
                 <div className="container" key={id}>
-                  {name}
+                  <img src={image.src} alt={image.alt} />
+                  <h1>{name}</h1>
                 </div>
               ))}
             </div>
-            )
           </div>
         )
       )}

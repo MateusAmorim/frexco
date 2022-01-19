@@ -15,7 +15,7 @@ const HomeDiv = styled.div`
       flex-direction: column;
       align-items: center;
       justify-content: center;
-      margin: 50px 0;
+      margin-top: 50px;
       label {
         color: #87f;
         font-weight: 600;
@@ -65,6 +65,7 @@ const HomeDiv = styled.div`
       align-items: flex-start;
       justify-content: center;
       flex-wrap: wrap;
+      padding: 50px 0;
       .container {
         height: 700px;
         width: 400px;
@@ -95,7 +96,32 @@ const HomeDiv = styled.div`
           height: 80%;
           width: 100%;
         }
-        h1 {
+        ul {
+          display: flex;
+          flex-direction: column;
+          align-items: flex-start;
+          justify-content: center;
+          padding: 10px 0;
+          li {
+            p {
+              font-size: 1.2rem;
+              font-weight: 600;
+            }
+            h1 {
+              color: #e80;
+              font-size: 1.5rem;
+              font-weight: 600;
+              margin: 10px 0;
+            }
+            button {
+              background-color: #87f;
+              color: #fff;
+              font-size: 1.125rem;
+              border: none;
+              padding: 10px 20px;
+              border-radius: 5px;
+            }
+          }
         }
       }
     }
@@ -184,7 +210,19 @@ const Home = () => {
               {alimentos.map(({ name, id, image }) => (
                 <div className="container" key={id}>
                   <img src={image.src} alt={image.alt} />
-                  <h1>{name}</h1>
+                  <ul>
+                    <li>
+                      <p>R$: 1,70</p>
+                    </li>
+                    <li>
+                      <h1>{name}</h1>
+                    </li>
+                    <li>
+                      <button>
+                        Adicionar
+                      </button>
+                    </li>
+                  </ul>
                 </div>
               ))}
             </div>

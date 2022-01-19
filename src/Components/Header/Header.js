@@ -11,9 +11,11 @@ const HeaderDiv = styled.header`
     justify-content: space-around;
     height: 8vh;
     .logo {
-      font-size: 1.6rem;
-      font-weight: 600;
-      color: #87f;
+      h1 {
+        font-size: 1.6rem;
+        font-weight: 600;
+        color: #87f;
+      }
     }
     .carrinho {
       background-color: #87f;
@@ -38,7 +40,7 @@ const Header = () => {
     <HeaderDiv>
       <nav>
         <Link to="/" className="logo">
-          Frexco
+          <h1>Frexco</h1>
         </Link>
         <Link to="/carrinho" className="carrinho">
           <h1>Carrinho</h1> <Carrinho />

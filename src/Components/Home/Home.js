@@ -4,9 +4,34 @@ import styled from 'styled-components';
 const HomeDiv = styled.div`
   min-height: 86vh;
   display: flex;
-  align-items: center;
-  justify-content: center;
+  align-items: flex-start;
+  justify-content: start;
+  flex-direction: row;
+  flex-wrap: wrap;
+  width: 80vw;
+  margin: 0 auto;
+  .alimentos {
+    border: 1px solid red;
+    background-color: #fafafa;
+    height: 350px;
+    width: 300px;
+    margin: 20px;
+    box-shadow: 0 4px 8px rgb(30 60 90 / 10%);
+    border-radius: 5px;
+    transition: all 0.2s;
+    &:hover {
+      box-shadow: 0 6px 12px rgba(30, 60, 90, 0.2);
+      transform: scale(1.1);
+      position: relative;
+      z-index: 1;
+    }
+  }
   .loading {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 86vh;
+    width: 100%;
     span {
       display: inline-block;
       width: 10px;
@@ -41,7 +66,7 @@ const HomeDiv = styled.div`
 
 const Home = () => {
   const [alimentos, setAlimentos] = React.useState(null);
-  const [loading, setLoading] = React.useState(false);
+  const [loading, setLoading] = React.useState(true);
   const puxarDados = async () => {
     setLoading(true);
     const dados = await fetch('https://api-frexco.herokuapp.com/');
@@ -58,7 +83,6 @@ const Home = () => {
   return (
     <HomeDiv>
       {loading ? (
-        // <div className="loading">Carregando...</div>
         <div className="loading">
           <span></span>
           <span></span>
@@ -66,7 +90,12 @@ const Home = () => {
           <span></span>
         </div>
       ) : (
-        alimentos && alimentos.map(({ name, id }) => <div key={id}>{name}</div>)
+        alimentos &&
+        alimentos.map(({ name, id }) => (
+          <div className="alimentos" key={id}>
+            {name}
+          </div>
+        ))
       )}
     </HomeDiv>
   );

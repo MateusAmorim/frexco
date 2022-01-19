@@ -1,29 +1,86 @@
 import React from 'react';
 import styled from 'styled-components';
+import SearchSvg from './SearchSvg';
 
 const HomeDiv = styled.div`
   min-height: 86vh;
-  display: flex;
-  align-items: flex-start;
-  justify-content: start;
-  flex-direction: row;
-  flex-wrap: wrap;
-  width: 80vw;
-  margin: 0 auto;
-  .alimentos {
-    border: 1px solid red;
-    background-color: #fafafa;
-    height: 350px;
-    width: 300px;
-    margin: 20px;
-    box-shadow: 0 4px 8px rgb(30 60 90 / 10%);
-    border-radius: 5px;
-    transition: all 0.2s;
-    &:hover {
-      box-shadow: 0 6px 12px rgba(30, 60, 90, 0.2);
-      transform: scale(1.1);
-      position: relative;
-      z-index: 1;
+  width: 100%;
+  .listagem {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    .search {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      margin: 50px 0;
+      label {
+        color: #87f;
+        font-weight: 600;
+        font-size: 1.4rem;
+        margin-bottom: 10px;
+      }
+      form {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        box-shadow: 0 4px 8px rgba(30, 60, 90, 0.1);
+        border: none;
+        input {
+          border: none;
+          background-color: #fff;
+          padding: 10px;
+          border-radius: 5px 0 0 5px;
+          height: 50px;
+          width: 250px;
+          color: #333;
+          &:focus,
+          &:hover {
+            outline: 0;
+            border: 1px solid #87f;
+          }
+        }
+        button {
+          border: none;
+          background-color: #fff;
+          padding: 10px;
+          border-radius: 0 5px 5px 0;
+          height: 50px;
+          width: 50px;
+          cursor: pointer;
+          &:focus,
+          &:hover {
+            outline: 0;
+            border: 1px solid #87f;
+          }
+        }
+      }
+    }
+    .produtos {
+      width: 80vw;
+      display: flex;
+      flex-direction: row;
+      align-items: flex-start;
+      justify-content: center;
+      flex-wrap: wrap;
+      .container {
+        border: 1px solid #000;
+        height: 350px;
+        width: 300px;
+        margin: 20px;
+        box-shadow: 0 4px 8px rgb(30 60 90 / 10%);
+        border-radius: 5px;
+        transition: all 0.2s;
+        cursor: pointer;
+        &:hover {
+          box-shadow: 0 6px 12px rgba(30, 60, 90, 0.2);
+          transform: scale(1.1);
+          position: relative;
+          z-index: 1;
+        }
+      }
     }
   }
   .loading {
@@ -80,6 +137,11 @@ const Home = () => {
     puxarDados();
   }, []);
 
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    console.log('buscar');
+  };
+
   return (
     <HomeDiv>
       {loading ? (
@@ -90,12 +152,27 @@ const Home = () => {
           <span></span>
         </div>
       ) : (
-        alimentos &&
-        alimentos.map(({ name, id }) => (
-          <div className="alimentos" key={id}>
-            {name}
+        alimentos && (
+          <div className="listagem">
+            <div className="search">
+              <label htmlFor="">Produtos</label>
+              <form action="" onSubmit={handleSubmit}>
+                <input type="text" placeholder="Buscar..." />
+                <button>
+                  <SearchSvg />{' '}
+                </button>
+              </form>
+            </div>
+            <div className="produtos">
+              {alimentos.map(({ name, id }) => (
+                <div className="container" key={id}>
+                  {name}
+                </div>
+              ))}
+            </div>
+            )
           </div>
-        ))
+        )
       )}
     </HomeDiv>
   );

@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import SearchSvg from './SearchSvg';
 
 const HomeDiv = styled.div`
-  min-height: 86vh;
+  min-height: 85vh;
   width: 100%;
   .listagem {
     display: flex;
@@ -66,6 +66,9 @@ const HomeDiv = styled.div`
       justify-content: center;
       flex-wrap: wrap;
       padding: 50px 0;
+      @media only screen and (max-width: 500px) {
+        width: 100%;
+      }
       .container {
         height: 700px;
         width: 400px;
@@ -74,6 +77,12 @@ const HomeDiv = styled.div`
         border-radius: 5px;
         padding: 10px;
         animation: enter 0.3s;
+        @media only screen and (max-width: 500px) {
+          max-width: 100%;
+          max-height: auto;
+          height: auto;
+          margin: 20px 0;
+        }
         @keyframes enter {
           from {
             opacity: 0;
@@ -91,6 +100,12 @@ const HomeDiv = styled.div`
           transform: scale(1.1);
           position: relative;
           z-index: 1;
+        }
+        @media only screen and (max-width: 500px) {
+          &:hover {
+            transform: none;
+            box-shadow: 0 4px 8px rgb(30 60 90 / 10%);
+          }
         }
         img {
           height: 80%;
@@ -212,15 +227,15 @@ const Home = () => {
                   <img src={image.src} alt={image.alt} />
                   <ul>
                     <li>
-                      <p>R$: 1,70</p>
+                      <p>{`R$: ${Math.floor(Math.random() * (6 - 2 + 1)) + 2},${
+                        Math.floor(Math.random() * (99 - 10 + 1)) + 10
+                      }`}</p>
                     </li>
                     <li>
                       <h1>{name}</h1>
                     </li>
                     <li>
-                      <button>
-                        Adicionar
-                      </button>
+                      <button>Adicionar</button>
                     </li>
                   </ul>
                 </div>

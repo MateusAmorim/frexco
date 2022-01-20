@@ -5,23 +5,19 @@ import HomeDiv from './Home.style';
 const Home = () => {
   const [alimentos, setAlimentos] = React.useState(null);
   const [loading, setLoading] = React.useState(true);
+  const [carrinho, setCarrinho] = React.useState({});
+
   const puxarDados = async () => {
     setLoading(true);
     const dados = await fetch('https://api-frexco.herokuapp.com/');
     const dadosJson = await dados.json();
     setAlimentos(dadosJson);
-    console.log(dadosJson);
     setLoading(false);
   };
 
   React.useEffect(() => {
     puxarDados();
   }, []);
-
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    console.log('buscar');
-  };
 
   return (
     <HomeDiv>
@@ -37,10 +33,10 @@ const Home = () => {
           <div className="listagem">
             <div className="search">
               <label htmlFor="">Produtos</label>
-              <form action="" onSubmit={handleSubmit}>
+              <form>
                 <input type="text" placeholder="Buscar..." />
                 <button>
-                  <SearchSvg />{' '}
+                  <SearchSvg />
                 </button>
               </form>
             </div>
@@ -58,7 +54,11 @@ const Home = () => {
                       <h1>{name}</h1>
                     </li>
                     <li>
-                      <button>Adicionar</button>
+                      <button
+                        onClick={() => setCarrinho({ ...carrinho, [id]: name })}
+                      >
+                        Adicionar
+                      </button>
                     </li>
                   </ul>
                 </div>

@@ -1,11 +1,11 @@
 import React from 'react';
 import SearchSvg from './SearchSvg';
-import HomeDiv from './Home.style';
+import HomeStyle from './Home.style';
 import { UserContext } from '../UserContext';
 import { useNavigate } from 'react-router-dom';
 
 const Home = () => {
-  const [alimentos, setAlimentos] = React.useState(null);
+  const [dados, setDados] = React.useState(null);
   const [loading, setLoading] = React.useState(true);
   const { produto, setProduto } = React.useContext(UserContext);
   const navigate = useNavigate();
@@ -20,7 +20,7 @@ const Home = () => {
     setLoading(true);
     const dados = await fetch('https://api-frexco.herokuapp.com/');
     const dadosJson = await dados.json();
-    setAlimentos(dadosJson);
+    setDados(dadosJson);
     setLoading(false);
   };
 
@@ -29,7 +29,7 @@ const Home = () => {
   }, []);
 
   return (
-    <HomeDiv>
+    <HomeStyle>
       {loading ? (
         <div className="loading">
           <span></span>
@@ -38,7 +38,7 @@ const Home = () => {
           <span></span>
         </div>
       ) : (
-        alimentos && (
+        dados && (
           <div className="listagem">
             <div className="search">
               <label htmlFor="">Produtos</label>
@@ -50,37 +50,34 @@ const Home = () => {
               </form>
             </div>
             <div className="produtos">
-              {alimentos.map(
-                ({ name, id, image, preco, nutritions }, index) => (
-                  <div className="container" key={id}>
-                    <img src={image.src} alt={image.alt} />
-                    <section>
-                      <p>{preco}</p>
-                      <h1>{name}</h1>
-                      <button
-                        onClick={() =>
-                          setProduto({
-                            ...produto,
-                            index,
-                            name,
-                            id,
-                            preco,
-                            nutritions,
-                            image,
-                          })
-                        }
-                      >
-                        Informações nutricionais
-                      </button>
-                    </section>
-                  </div>
-                ),
-              )}
+              {dados.map(({ name, id, image, preco, nutritions }, index) => (
+                <div className="container" key={id}>
+                  <img src={image.src} alt={image.alt} />
+                  <section>
+                    <p>{preco}</p>
+                    <h1>{name}</h1>
+                    <button
+                      onClick={() =>
+                        setProduto({
+                          index,
+                          name,
+                          id,
+                          preco,
+                          nutritions,
+                          image,
+                        })
+                      }
+                    >
+                      Informações nutricionais
+                    </button>
+                  </section>
+                </div>
+              ))}
             </div>
           </div>
         )
       )}
-    </HomeDiv>
+    </HomeStyle>
   );
 };
 

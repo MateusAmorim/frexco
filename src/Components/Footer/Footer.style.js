@@ -1,8 +1,11 @@
 import styled from 'styled-components';
 
-const FooterDiv = styled.footer`
+const FooterStyle = styled.footer`
   background-color: #87f;
   height: 6vh;
+  @media only screen and (max-width: 500px) {
+    padding: 50px 0;
+  }
   p {
     display: flex;
     align-items: center;
@@ -13,4 +16,4 @@ const FooterDiv = styled.footer`
   }
 `;
 
-export default FooterDiv;
+export default FooterStyle;

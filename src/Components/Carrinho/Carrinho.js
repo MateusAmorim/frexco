@@ -1,8 +1,8 @@
 import React from 'react';
-import CarrinhoDiv from './Carrinho.style';
+import CarrinhoStyle from './Carrinho.style';
 
 const Carrinho = () => {
-  return <CarrinhoDiv>Carrinho</CarrinhoDiv>;
+  return <CarrinhoStyle>Carrinho</CarrinhoStyle>;
 };
 
 export default Carrinho;

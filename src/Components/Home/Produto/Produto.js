@@ -1,12 +1,20 @@
 import React from 'react';
 import { UserContext } from '../../UserContext';
-import ProdutoDiv from './Produto.style';
+import ProdutoStyle from './Produto.style';
 
 const Produto = () => {
   const { produto } = React.useContext(UserContext);
 
+  React.useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
+  const handleAdd = () => {
+    console.log(produto);
+  };
+
   return (
-    <ProdutoDiv>
+    <ProdutoStyle>
       <div className="container">
         <div className="image">
           <img src={produto.image.src} alt={produto.image.alt} />
@@ -42,10 +50,10 @@ const Produto = () => {
             </li>
           </ul>
           <h2>{produto.preco}</h2>
-          <button>Adicionar</button>
+          <button onClick={handleAdd}>Adicionar</button>
         </div>
       </div>
-    </ProdutoDiv>
+    </ProdutoStyle>
   );
 };
 

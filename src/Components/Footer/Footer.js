@@ -1,11 +1,11 @@
 import React from 'react';
-import FooterDiv from './Footer.style';
+import FooterStyle from './Footer.style';
 
 const Footer = () => {
   return (
-    <FooterDiv>
+    <FooterStyle>
       <p>Frexco. todos os diretos reservados.</p>
-    </FooterDiv>
+    </FooterStyle>
   );
 };
 

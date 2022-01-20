@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-const HeaderDiv = styled.header`
+const HeaderStyle = styled.header`
   box-shadow: 0 2px 4px rgba(30, 60, 90, 0.1);
   @media only screen and (max-width: 500px) {
     padding: 20px 0;
@@ -41,4 +41,4 @@ const HeaderDiv = styled.header`
   }
 `;
 
-export default HeaderDiv;
+export default HeaderStyle;

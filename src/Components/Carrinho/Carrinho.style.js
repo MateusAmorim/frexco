@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
-const CarrinhoDiv = styled.div`
+const CarrinhoStyle = styled.div`
   min-height: 86vh;
 `;
 
-export default CarrinhoDiv
+export default CarrinhoStyle

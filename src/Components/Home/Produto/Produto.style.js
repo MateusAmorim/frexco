@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-const ProdutoDiv = styled.section`
+const ProdutoStyle = styled.section`
   min-height: 86vh;
   display: flex;
   align-items: center;
@@ -51,6 +51,7 @@ const ProdutoDiv = styled.section`
         width: 100%;
         height: auto;
         margin-left: 0px;
+        margin: 5px;
       }
       h1 {
         color: #e80;
@@ -143,4 +144,4 @@ const ProdutoDiv = styled.section`
   }
 `;
 
-export default ProdutoDiv;
+export default ProdutoStyle;

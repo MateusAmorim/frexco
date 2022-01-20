@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import Carrinho from './CarrinhoSvg';
-import HeaderDiv from './Header.style';
+import CarrinhoSvg from './CarrinhoSvg';
+import HeaderStyle from './Header.style';
 import { UserContext } from '../UserContext';
 
 const Header = () => {
@@ -11,7 +11,7 @@ const Header = () => {
   };
 
   return (
-    <HeaderDiv>
+    <HeaderStyle>
       <nav>
         <Link to="/" className="logo" onClick={cleanState}>
           <h1>Frexco</h1>
@@ -20,10 +20,10 @@ const Header = () => {
           <h1>
             <span>0</span>Carrinho
           </h1>
-          <Carrinho />
+          <CarrinhoSvg />
         </Link>
       </nav>
-    </HeaderDiv>
+    </HeaderStyle>
   );
 };
 

@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-const HomeDiv = styled.div`
+const HomeStyle = styled.div`
   min-height: 86vh;
   width: 100%;
   .listagem {
@@ -139,4 +139,4 @@ const HomeDiv = styled.div`
   }
 `;
 
-export default HomeDiv;
+export default HomeStyle;

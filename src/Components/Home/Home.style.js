@@ -109,31 +109,29 @@ const HomeDiv = styled.div`
           height: 80%;
           width: 100%;
         }
-        ul {
+        section {
           display: flex;
           flex-direction: column;
           align-items: flex-start;
           justify-content: center;
           padding: 10px 0;
-          li {
-            p {
-              font-size: 1.2rem;
-              font-weight: 600;
-            }
-            h1 {
-              color: #e80;
-              font-size: 1.5rem;
-              font-weight: 600;
-              margin: 10px 0;
-            }
-            button {
-              background-color: #87f;
-              color: #fff;
-              font-size: 1.125rem;
-              border: none;
-              padding: 10px 20px;
-              border-radius: 5px;
-            }
+          p {
+            font-size: 1.2rem;
+            font-weight: 600;
+          }
+          h1 {
+            color: #e80;
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin: 10px 0;
+          }
+          button {
+            background-color: #87f;
+            color: #fff;
+            font-size: 1.125rem;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
           }
         }
       }

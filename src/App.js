@@ -5,16 +5,19 @@ import Carrinho from './Components/Carrinho/Carrinho';
 import Footer from './Components/Footer/Footer';
 import './Default.css';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { GlobalStorage } from './Components/Context/CarrinhoContext';
 
 function App() {
   return (
     <>
       <BrowserRouter>
-        <Header />
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/carrinho" element={<Carrinho />} />
-        </Routes>
+        <GlobalStorage>
+          <Header />
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/carrinho" element={<Carrinho />} />
+          </Routes>
+        </GlobalStorage>
         <Footer />
       </BrowserRouter>
     </>

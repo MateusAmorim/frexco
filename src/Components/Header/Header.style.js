@@ -31,6 +31,12 @@ const HeaderDiv = styled.header`
         color: #fff;
         margin-right: 5px;
       }
+      span {
+        margin-right: 5px;
+        font-weight: 600;
+        color: #fff;
+        font-size: 1.4rem;
+      }
     }
   }
 `;

@@ -19,7 +19,7 @@ const Header = () => {
         </Link>
         <Link to="/Carrinho" className="carrinho">
           <h1>
-            <span>{carrinho.length}</span>Carrinho
+            {carrinho.length > 0 && <span>{carrinho.length}</span>}Carrinho
           </h1>
           <CarrinhoSvg />
         </Link>

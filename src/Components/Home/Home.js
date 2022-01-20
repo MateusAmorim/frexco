@@ -17,7 +17,6 @@ const Home = () => {
   }, [produto]);
 
   const puxarDados = async () => {
-    setLoading(true);
     const dados = await fetch('https://api-frexco.herokuapp.com/');
     const dadosJson = await dados.json();
     setDados(dadosJson);

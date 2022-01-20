@@ -3,14 +3,14 @@ import { UserContext } from '../../UserContext';
 import ProdutoStyle from './Produto.style';
 
 const Produto = () => {
-  const { produto } = React.useContext(UserContext);
+  const { produto, carrinho, setCarrinho } = React.useContext(UserContext);
 
   React.useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
 
   const handleAdd = () => {
-    console.log(produto);
+    setCarrinho([...carrinho, produto]);
   };
 
   return (

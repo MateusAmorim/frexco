@@ -5,7 +5,8 @@ import HeaderStyle from './Header.style';
 import { UserContext } from '../UserContext';
 
 const Header = () => {
-  const { produto, setProduto } = React.useContext(UserContext);
+  const { setProduto, carrinho } = React.useContext(UserContext);
+
   const cleanState = () => {
     setProduto({});
   };
@@ -18,7 +19,7 @@ const Header = () => {
         </Link>
         <Link to="/Carrinho" className="carrinho">
           <h1>
-            <span>0</span>Carrinho
+            <span>{carrinho.length}</span>Carrinho
           </h1>
           <CarrinhoSvg />
         </Link>

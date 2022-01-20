@@ -1,9 +1,13 @@
 import styled from 'styled-components';
 
 const HeaderStyle = styled.header`
+  position: fixed;
+  z-index: 9999;
+  width: 100vw;
+  background-color: #fff;
   box-shadow: 0 2px 4px rgba(30, 60, 90, 0.1);
   @media only screen and (max-width: 500px) {
-    padding: 20px 0;
+    padding: 10px 0;
   }
   nav {
     display: flex;

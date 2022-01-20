@@ -1,12 +1,13 @@
 import styled from 'styled-components';
 
 const ProdutoStyle = styled.section`
-  min-height: 86vh;
+  min-height: 94vh;
   display: flex;
   align-items: center;
   justify-content: center;
   padding: 50px 0;
   .container {
+    margin-top: 50px;
     display: flex;
     flex-direction: row;
     align-items: center;

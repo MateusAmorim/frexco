@@ -71,7 +71,8 @@ const HomeDiv = styled.div`
         height: 700px;
         width: 400px;
         margin: 20px;
-        box-shadow: 0 4px 8px rgb(30 60 90 / 10%);
+        /* box-shadow: 0 4px 8px rgb(30 60 90 / 10%); */
+        box-shadow: 0 6px 12px rgba(30, 60, 90, 0.2);
         border-radius: 5px;
         padding: 10px;
         animation: enter 0.3s;
@@ -94,7 +95,7 @@ const HomeDiv = styled.div`
         transition: all 0.2s;
         cursor: pointer;
         &:hover {
-          box-shadow: 0 6px 12px rgba(30, 60, 90, 0.2);
+          /* box-shadow: 0 6px 12px rgba(30, 60, 90, 0.2); */
           transform: scale(1.1);
           position: relative;
           z-index: 1;
@@ -102,7 +103,7 @@ const HomeDiv = styled.div`
         @media only screen and (max-width: 500px) {
           &:hover {
             transform: none;
-            box-shadow: 0 4px 8px rgb(30 60 90 / 10%);
+            /* box-shadow: 0 4px 8px rgb(30 60 90 / 10%); */
           }
         }
         img {

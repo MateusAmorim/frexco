@@ -11,7 +11,6 @@ const Home = () => {
   const navigate = useNavigate();
 
   React.useEffect(() => {
-    console.log(produto);
     if (produto.index >= 0) {
       navigate(`/${produto.name}`);
     }
@@ -51,28 +50,32 @@ const Home = () => {
               </form>
             </div>
             <div className="produtos">
-              {alimentos.map(({ name, id, image, preco }, index) => (
-                <div className="container" key={id}>
-                  <img
-                    onClick={() =>
-                      setProduto({
-                        ...produto,
-                        index,
-                        name,
-                        id,
-                        preco,
-                      })
-                    }
-                    src={image.src}
-                    alt={image.alt}
-                  />
-                  <section>
-                    <p>{preco}</p>
-                    <h1>{name}</h1>
-                    <button>Adicionar</button>
-                  </section>
-                </div>
-              ))}
+              {alimentos.map(
+                ({ name, id, image, preco, nutritions }, index) => (
+                  <div className="container" key={id}>
+                    <img
+                      onClick={() =>
+                        setProduto({
+                          ...produto,
+                          index,
+                          name,
+                          id,
+                          preco,
+                          nutritions,
+                          image,
+                        })
+                      }
+                      src={image.src}
+                      alt={image.alt}
+                    />
+                    <section>
+                      <p>{preco}</p>
+                      <h1>{name}</h1>
+                      <button>Adicionar</button>
+                    </section>
+                  </div>
+                ),
+              )}
             </div>
           </div>
         )

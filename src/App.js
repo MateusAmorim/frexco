@@ -3,7 +3,7 @@ import Header from './Components/Header/Header';
 import Home from './Components/Home/Home';
 import Carrinho from './Components/Carrinho/Carrinho';
 import Footer from './Components/Footer/Footer';
-import Produto from './Components/Home/Produto';
+import Produto from './Components/Home/Produto/Produto';
 import './Default.css';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { UserContext } from './Components/UserContext';

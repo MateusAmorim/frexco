@@ -8,8 +8,6 @@ const Home = () => {
   const [loading, setLoading] = React.useState(true);
   const { carrinho, setCarrinho } = React.useContext(GlobalContext);
 
-  console.log(carrinho);
-
   const puxarDados = async () => {
     setLoading(true);
     const dados = await fetch('https://api-frexco.herokuapp.com/');
@@ -50,13 +48,7 @@ const Home = () => {
                   <section>
                     <p>{preco}</p>
                     <h1>{name}</h1>
-                    <button
-                      onClick={() =>
-                        setCarrinho({ ...carrinho, id, name, preco, index })
-                      }
-                    >
-                      Adicionar
-                    </button>
+                    <button>Adicionar</button>
                   </section>
                 </div>
               ))}

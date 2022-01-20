@@ -1,7 +1,10 @@
 import React from 'react';
+import { UserContext } from '../UserContext';
 
 const Produto = () => {
-  return <h1>Produto</h1>;
+  const { produto } = React.useContext(UserContext);
+
+  return <h1>{produto.name}</h1>;
 };
 
 export default Produto;

@@ -1,12 +1,21 @@
 import React from 'react';
 import SearchSvg from './SearchSvg';
 import HomeDiv from './Home.style';
-import { GlobalContext } from '../Context/CarrinhoContext';
+import { UserContext } from '../UserContext';
+import { useNavigate } from 'react-router-dom';
 
 const Home = () => {
   const [alimentos, setAlimentos] = React.useState(null);
   const [loading, setLoading] = React.useState(true);
-  const { carrinho, setCarrinho } = React.useContext(GlobalContext);
+  const { produto, setProduto } = React.useContext(UserContext);
+  const navigate = useNavigate();
+
+  React.useEffect(() => {
+    console.log(produto);
+    if (produto.index >= 0) {
+      navigate(`/${produto.name}`);
+    }
+  }, [produto]);
 
   const puxarDados = async () => {
     setLoading(true);
@@ -44,7 +53,19 @@ const Home = () => {
             <div className="produtos">
               {alimentos.map(({ name, id, image, preco }, index) => (
                 <div className="container" key={id}>
-                  <img src={image.src} alt={image.alt} />
+                  <img
+                    onClick={() =>
+                      setProduto({
+                        ...produto,
+                        index,
+                        name,
+                        id,
+                        preco,
+                      })
+                    }
+                    src={image.src}
+                    alt={image.alt}
+                  />
                   <section>
                     <p>{preco}</p>
                     <h1>{name}</h1>

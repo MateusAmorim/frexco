@@ -1,9 +1,14 @@
 import React from 'react';
 import CarrinhoStyle from './Carrinho.style';
 import { UserContext } from '../UserContext';
+import CarrinhoSvg from './CarrinhoSvg';
 
 const Carrinho = () => {
   const { carrinho } = React.useContext(UserContext);
+
+  const handleRemove = () => {
+    console.log('remover');
+  };
 
   React.useEffect(() => {
     window.scrollTo(0, 0);
@@ -18,9 +23,18 @@ const Carrinho = () => {
             {carrinho &&
               carrinho.map((cart, index) => (
                 <ul key={index}>
-                  <li>Produto: {cart.name}</li>
-                  <li>Quantidade: 0</li>
-                  <li>Preço: {cart.preco}</li>
+                  <li>
+                    Produto: <span>{cart.name}</span>
+                  </li>
+                  <li>
+                    Quantidade: <span>0</span>
+                  </li>
+                  <li>
+                    Preço: <span>{cart.preco}</span>
+                  </li>
+                  <li>
+                    <CarrinhoSvg handleRemove={handleRemove} />
+                  </li>
                 </ul>
               ))}
           </div>

@@ -46,6 +46,11 @@ const CarrinhoStyle = styled.div`
         }
         li {
           padding: 20px 50px;
+          font-weight: 600;
+          span {
+            color: #87f;
+            font-weight: 600;
+          }
           @media only screen and (max-width: 800px) {
             padding: 25px 50px;
           }

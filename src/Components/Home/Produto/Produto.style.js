@@ -5,6 +5,7 @@ const ProdutoDiv = styled.section`
   display: flex;
   align-items: center;
   justify-content: center;
+  padding: 50px 0;
   .container {
     display: flex;
     flex-direction: row;
@@ -14,21 +15,43 @@ const ProdutoDiv = styled.section`
     box-shadow: 0 6px 12px rgba(30, 60, 90, 0.2);
     border-radius: 5px;
     padding: 5px;
-    border: 1px solid red;
+    background-color: #fff;
+    animation: enter 0.3s;
+    @keyframes enter {
+      from {
+        opacity: 0;
+        transform: translate3d(0, -20px, 0);
+      }
+      to {
+        opacity: initial;
+        transform: initial;
+      }
+    }
     .image {
-      height: 650px;
-      width: 400px;
       margin-right: 5px;
+      @media only screen and (max-width: 850px) {
+        margin-bottom: 50px;
+        margin-right: 0px;
+      }
       img {
-        height: 650px;
-        width: 400px;
+        width: 430px;
+        height: 606px;
         border-radius: 5px;
+        @media only screen and (max-width: 465px) {
+          width: 330px;
+          height: 500px;
+        }
       }
     }
     .info {
-      width: 25%;
-      border: 1px solid red;
       margin-left: 5px;
+      width: 400px;
+      height: 610px;
+      @media only screen and (max-width: 465px) {
+        width: 100%;
+        height: auto;
+        margin-left: 0px;
+      }
       h1 {
         color: #e80;
         font-size: 1.6rem;
@@ -50,6 +73,11 @@ const ProdutoDiv = styled.section`
           display: flex;
           align-items: center;
           justify-content: start;
+          span {
+            font-weight: 600;
+            margin-left: 5px;
+            color: #87f;
+          }
           &::before {
             content: '';
             display: inline-block;
@@ -65,6 +93,51 @@ const ProdutoDiv = styled.section`
         font-size: 1.4rem;
         color: #87f;
         font-weight: 600;
+        margin-bottom: 10px;
+      }
+      button {
+        background-color: #87f;
+        color: #fff;
+        font-size: 1.125rem;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 5px;
+      }
+    }
+  }
+  .loading {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 86vh;
+    width: 100%;
+    span {
+      display: inline-block;
+      width: 10px;
+      height: 10px;
+      border-radius: 10px;
+      background-color: #87f;
+      margin: 4px;
+      animation: dots 0.6s cubic-bezier(0.6, 0.1, 1, 0.4) infinite alternate;
+      &:nth-child(1) {
+        animation-delay: 0.1s;
+      }
+      &:nth-child(2) {
+        animation-delay: 0.2s;
+      }
+      &:nth-child(3) {
+        animation-delay: 0.3s;
+      }
+      &:nth-child(4) {
+        animation-delay: 0.4s;
+      }
+      @keyframes dots {
+        from {
+          transform: translate3d(0, 0, 0);
+        }
+        to {
+          transform: translate3d(0, 30px, 0);
+        }
       }
     }
   }

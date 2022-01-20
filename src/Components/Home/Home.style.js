@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 const HomeDiv = styled.div`
-  min-height: 85vh;
+  min-height: 86vh;
   width: 100%;
   .listagem {
     display: flex;
@@ -71,11 +71,11 @@ const HomeDiv = styled.div`
         height: 700px;
         width: 400px;
         margin: 20px;
-        /* box-shadow: 0 4px 8px rgb(30 60 90 / 10%); */
         box-shadow: 0 6px 12px rgba(30, 60, 90, 0.2);
         border-radius: 5px;
         padding: 10px;
         animation: enter 0.3s;
+        background-color: #fff;
         @media only screen and (max-width: 500px) {
           max-width: 100%;
           max-height: auto;
@@ -88,14 +88,12 @@ const HomeDiv = styled.div`
             transform: translate3d(0, -20px, 0);
           }
           to {
-            opacity: 1;
-            transform: translate3d(0, 0px, 0);
+            opacity: initil;
+            transform: initial;
           }
         }
         transition: all 0.2s;
-        cursor: pointer;
         &:hover {
-          /* box-shadow: 0 6px 12px rgba(30, 60, 90, 0.2); */
           transform: scale(1.1);
           position: relative;
           z-index: 1;
@@ -103,12 +101,12 @@ const HomeDiv = styled.div`
         @media only screen and (max-width: 500px) {
           &:hover {
             transform: none;
-            /* box-shadow: 0 4px 8px rgb(30 60 90 / 10%); */
           }
         }
         img {
           height: 80%;
           width: 100%;
+          border-radius: 5px;
         }
         section {
           display: flex;
@@ -133,43 +131,8 @@ const HomeDiv = styled.div`
             border: none;
             padding: 10px 20px;
             border-radius: 5px;
+            cursor: pointer;
           }
-        }
-      }
-    }
-  }
-  .loading {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    min-height: 86vh;
-    width: 100%;
-    span {
-      display: inline-block;
-      width: 10px;
-      height: 10px;
-      border-radius: 10px;
-      background-color: #87f;
-      margin: 4px;
-      animation: dots 0.6s cubic-bezier(0.6, 0.1, 1, 0.4) infinite alternate;
-      &:nth-child(1) {
-        animation-delay: 0.1s;
-      }
-      &:nth-child(2) {
-        animation-delay: 0.2s;
-      }
-      &:nth-child(3) {
-        animation-delay: 0.3s;
-      }
-      &:nth-child(4) {
-        animation-delay: 0.4s;
-      }
-      @keyframes dots {
-        from {
-          transform: translate3d(0, 0, 0);
-        }
-        to {
-          transform: translate3d(0, 30px, 0);
         }
       }
     }

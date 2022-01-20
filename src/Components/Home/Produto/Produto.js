@@ -25,13 +25,24 @@ const Produto = () => {
             amassada e utilizada na preparação de pratos doces ou em saladas.
           </p>
           <ul>
-            <li>Calories: {produto.nutritions.calories}</li>
-            <li>Carbohydrates: {produto.nutritions.carbohydrates}</li>
-            <li>Fat: {produto.nutritions.fat}</li>
-            <li>Protein: {produto.nutritions.protein}</li>
-            <li>Sugar: {produto.nutritions.sugar}</li>
+            <li>
+              Calorias: <span>{produto.nutritions.calories}kcal</span>
+            </li>
+            <li>
+              Carboidratos: <span>{produto.nutritions.carbohydrates}g</span>
+            </li>
+            <li>
+              Gordura: <span>{produto.nutritions.fat}g</span>
+            </li>
+            <li>
+              Proteina: <span>{produto.nutritions.protein}g</span>
+            </li>
+            <li>
+              Açucar: <span>{produto.nutritions.sugar}g</span>
+            </li>
           </ul>
-          <h2>Price: {produto.preco}</h2>
+          <h2>{produto.preco}</h2>
+          <button>Adicionar</button>
         </div>
       </div>
     </ProdutoDiv>

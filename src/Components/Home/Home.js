@@ -53,25 +53,25 @@ const Home = () => {
               {alimentos.map(
                 ({ name, id, image, preco, nutritions }, index) => (
                   <div className="container" key={id}>
-                    <img
-                      onClick={() =>
-                        setProduto({
-                          ...produto,
-                          index,
-                          name,
-                          id,
-                          preco,
-                          nutritions,
-                          image,
-                        })
-                      }
-                      src={image.src}
-                      alt={image.alt}
-                    />
+                    <img src={image.src} alt={image.alt} />
                     <section>
                       <p>{preco}</p>
                       <h1>{name}</h1>
-                      <button>Adicionar</button>
+                      <button
+                        onClick={() =>
+                          setProduto({
+                            ...produto,
+                            index,
+                            name,
+                            id,
+                            preco,
+                            nutritions,
+                            image,
+                          })
+                        }
+                      >
+                        Informações nutricionais
+                      </button>
                     </section>
                   </div>
                 ),

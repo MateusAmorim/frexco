@@ -21,15 +21,23 @@ const Carrinho = () => {
   };
 
   const precoTotal = () => {
-    setTotal(5);
+    const precoLimpo = carrinho.map(
+      (item) =>
+        +item.preco.replace('R$', '').replace(':', '').replace(',', '.').trim(),
+    );
+
+    return Object.keys(precoLimpo).reduce(
+      (sum, key) => sum + parseFloat(precoLimpo[key] || 0),
+      0,
+    );
   };
 
   const quantidadeTotal = () => {
-    setQuantidade(5);
+    setQuantidade(0);
   };
 
   React.useEffect(() => {
-    precoTotal();
+    setTotal(precoTotal());
     quantidadeTotal();
   }, [carrinho]);
 

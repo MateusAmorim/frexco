@@ -22,7 +22,7 @@ export const UserStorage = ({ children }) => {
         src: 'https://imagens-frexco.vercel.app/damasco.jpg',
         alt: 'Apricot',
       },
-      // preco: 'R$: 4,97',
+      preco: 'R$: 4,97',
     },
     {
       genus: 'Musa',
@@ -41,7 +41,7 @@ export const UserStorage = ({ children }) => {
         src: 'https://imagens-frexco.vercel.app/banana.jpg',
         alt: 'Banana',
       },
-      // preco: 'R$: 2,24',
+      preco: 'R$: 2,24',
     },
     {
       genus: 'Rubus',
@@ -60,7 +60,7 @@ export const UserStorage = ({ children }) => {
         src: 'https://imagens-frexco.vercel.app/blackberry.jpg',
         alt: 'Blackberry',
       },
-      // preco: 'R$: 2,38',
+      preco: 'R$: 2,38',
     },
   ]);
 

@@ -36,6 +36,9 @@ const CarrinhoStyle = styled.div`
         width: 100%;
         background-color: #fff;
         animation: enter 0.3s;
+        @media only screen and (max-width: 1100px) {
+          flex-direction: column;
+        }
         & + ul {
           margin-top: 10px;
         }
@@ -49,21 +52,6 @@ const CarrinhoStyle = styled.div`
           padding: 20px 50px;
           font-weight: 600;
           min-width: 300px;
-          button.quantidade {
-            cursor: pointer;
-            border: none;
-            color: #fff;
-            font-size: 1.275rem;
-            margin: 0 5px;
-            border-radius: 5px;
-            background-color: #eee;
-            color: #000;
-            width: 25px;
-            transition: 0.2s;
-            &:hover {
-              background-color: #ccc;
-            }
-          }
           &:last-child {
             min-width: auto;
             cursor: pointer;
@@ -80,6 +68,25 @@ const CarrinhoStyle = styled.div`
     }
     .finalizar {
       margin-top: 100px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      ul {
+        li {
+          &.limpar {
+            min-width: 300px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+          }
+        }
+        @media only screen and (max-width: 1100px) {
+          li {
+            text-align: center;
+          }
+        }
+      }
       h1 {
         margin-bottom: 20px;
       }
@@ -90,7 +97,7 @@ const CarrinhoStyle = styled.div`
           cursor: pointer;
           color: #fff;
           border-radius: 5px;
-          padding: 10px 20px;
+          padding: 5px 20px;
           transition: all 0.2s;
           &:hover {
             transform: scale(1.1);
@@ -98,6 +105,24 @@ const CarrinhoStyle = styled.div`
             z-index: 1;
             background-color: #76f;
           }
+        }
+      }
+      button {
+        margin-top: 10px;
+        background-color: #87f;
+        color: #fff;
+        font-size: 1.2rem;
+        font-weight: 600;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: all 0.2s;
+        &:hover {
+          transform: scale(1.1);
+          position: relative;
+          z-index: 1;
+          background-color: #76f;
         }
       }
     }

@@ -51,11 +51,6 @@ const Carrinho = () => {
                     Produto: <span>{cart.name}</span>
                   </li>
                   <li>
-                    Quantidade: <button className="quantidade">-</button>
-                    <span>0</span>
-                    <button className="quantidade">+</button>
-                  </li>
-                  <li>
                     Preço: <span>{cart.preco}</span>
                   </li>
                   <li>
@@ -81,7 +76,7 @@ const Carrinho = () => {
                 </ul>
               ))}
             <div className="finalizar">
-              <h1>Finalizar pedido</h1>
+              <h1>Finalizar</h1>
               <ul>
                 <li>
                   Total: <span className="total">{`R$: ${total}`}</span>
@@ -93,6 +88,7 @@ const Carrinho = () => {
                   <span className="limpar">Limpar</span>
                 </li>
               </ul>
+              <button className="btn-grad">Concluir pedido</button>
             </div>
           </div>
         ) : (

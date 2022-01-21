@@ -82,6 +82,7 @@ const Home = () => {
                                 preco,
                                 nutritions,
                                 image,
+                                quantidade: 0,
                               })
                             }
                           >
@@ -106,6 +107,7 @@ const Home = () => {
                               preco,
                               nutritions,
                               image,
+                              quantidade: 0,
                             })
                           }
                         >

@@ -7,7 +7,8 @@ const CarrinhoStyle = styled.div`
   align-items: center;
   justify-content: flex-start;
   .container {
-    margin: 100px 0 50px 0;
+    margin: 100px 0;
+    min-width: 90vw;
     @media only screen and (max-width: 800px) {
       margin: 125px 0;
     }
@@ -31,7 +32,7 @@ const CarrinhoStyle = styled.div`
         display: flex;
         flex-direction: row;
         align-items: center;
-        justify-content: space-around;
+        justify-content: space-evenly;
         width: 100%;
         background-color: #fff;
         animation: enter 0.3s;
@@ -47,18 +48,23 @@ const CarrinhoStyle = styled.div`
         li {
           padding: 20px 50px;
           font-weight: 600;
+          min-width: 300px;
+          &:last-child {
+            min-width: auto;
+          }
           span {
             color: #87f;
             font-weight: 600;
           }
           button {
             border: none;
-            background-color: #87f;
-            padding: 2.5px 10px;
             color: #fff;
             font-size: 1.275rem;
             margin: 0 5px;
             border-radius: 5px;
+            background-color: #eee;
+            color: #000;
+            width: 25px;
           }
           @media only screen and (max-width: 800px) {
             padding: 25px 50px;

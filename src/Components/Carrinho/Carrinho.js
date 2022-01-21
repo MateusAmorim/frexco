@@ -26,10 +26,9 @@ const Carrinho = () => {
         +item.preco.replace('R$', '').replace(':', '').replace(',', '.').trim(),
     );
 
-    return Object.keys(precoLimpo).reduce(
-      (sum, key) => sum + parseFloat(precoLimpo[key] || 0),
-      0,
-    );
+    return Object.keys(precoLimpo)
+      .reduce((sum, key) => sum + parseFloat(precoLimpo[key] || 0), 0)
+      .toFixed(2);
   };
 
   const quantidadeTotal = () => {};

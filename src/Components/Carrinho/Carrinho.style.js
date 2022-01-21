@@ -52,9 +52,8 @@ const CarrinhoStyle = styled.div`
           padding: 20px 50px;
           font-weight: 600;
           min-width: 300px;
-          text-align: left;
+          text-align: center;
           &:last-child {
-            min-width: auto;
             cursor: pointer;
           }
           span {

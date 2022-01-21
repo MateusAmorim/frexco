@@ -32,7 +32,9 @@ const Home = () => {
 
   const handleSearch = (event) => {
     event.preventDefault();
-    const filtroSearch = dados.filter((i) => i.name === search);
+    const filtroSearch = dados.filter(
+      (i) => i.name === search || i.name.toLowerCase() === search,
+    );
     setFiltro(filtroSearch);
   };
 

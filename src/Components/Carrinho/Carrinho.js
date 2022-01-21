@@ -7,7 +7,7 @@ const Carrinho = () => {
   const { carrinho } = React.useContext(UserContext);
 
   const handleRemove = () => {
-    console.log('remover');
+    console.log(carrinho);
   };
 
   React.useEffect(() => {

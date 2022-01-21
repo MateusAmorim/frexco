@@ -29,6 +29,13 @@ const HeaderStyle = styled.header`
       flex-direction: row;
       align-items: center;
       justify-content: space-between;
+      transition: all 0.2s;
+      &:hover {
+        transform: scale(1.1);
+        position: relative;
+        z-index: 1;
+        background-color: #76f;
+      }
       h1 {
         font-size: 1.2rem;
         font-weight: 600;

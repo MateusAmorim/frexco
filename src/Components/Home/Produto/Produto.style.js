@@ -101,10 +101,25 @@ const ProdutoStyle = styled.section`
         background-color: #87f;
         color: #fff;
         font-size: 1.125rem;
+        font-weight: 600;
         border: none;
         padding: 10px 20px;
         border-radius: 5px;
         cursor: pointer;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+        transition: all 0.2s;
+        &:hover {
+          transform: scale(1.1);
+          position: relative;
+          z-index: 1;
+          background-color: #76f;
+        }
+        svg {
+          margin-left: 5px;
+        }
       }
     }
   }

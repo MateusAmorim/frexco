@@ -1,6 +1,5 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import CarrinhoSvg from './CarrinhoSvg';
 import HeaderStyle from './Header.style';
 import { UserContext } from '../UserContext';
 
@@ -21,7 +20,6 @@ const Header = () => {
           <h1>
             {carrinho.length > 0 && <span>{carrinho.length}</span>}Carrinho
           </h1>
-          <CarrinhoSvg />
         </Link>
       </nav>
     </HeaderStyle>

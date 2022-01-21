@@ -1,6 +1,7 @@
 import React from 'react';
 import { UserContext } from '../../UserContext';
 import ProdutoStyle from './Produto.style';
+import CarrinhoSvg from './CarrinhoSvg';
 
 const Produto = () => {
   const { produto, carrinho, setCarrinho } = React.useContext(UserContext);
@@ -50,7 +51,10 @@ const Produto = () => {
             </li>
           </ul>
           <h2>{produto.preco}</h2>
-          <button onClick={handleAdd}>Adicionar</button>
+          <button onClick={handleAdd}>
+            Adicionar
+            <CarrinhoSvg />
+          </button>
         </div>
       </div>
     </ProdutoStyle>

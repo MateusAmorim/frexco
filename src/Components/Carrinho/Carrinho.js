@@ -51,9 +51,9 @@ const Carrinho = () => {
                     Produto: <span>{cart.name}</span>
                   </li>
                   <li>
-                    Quantidade: <button>-</button>
+                    Quantidade: <button className="quantidade">-</button>
                     <span>0</span>
-                    <button>+</button>
+                    <button className="quantidade">+</button>
                   </li>
                   <li>
                     Preço: <span>{cart.preco}</span>

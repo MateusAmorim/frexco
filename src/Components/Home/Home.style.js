@@ -132,6 +132,12 @@ const HomeStyle = styled.div`
             padding: 10px 20px;
             border-radius: 5px;
             cursor: pointer;
+            transition: 0.2s;
+            &:hover {
+              position: relative;
+              z-index: 1;
+              background-color: #76f;
+            }
           }
         }
       }

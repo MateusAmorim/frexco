@@ -52,6 +52,7 @@ const CarrinhoStyle = styled.div`
           padding: 20px 50px;
           font-weight: 600;
           min-width: 300px;
+          text-align: left;
           &:last-child {
             min-width: auto;
             cursor: pointer;
@@ -67,7 +68,7 @@ const CarrinhoStyle = styled.div`
       }
     }
     .finalizar {
-      margin-top: 100px;
+      margin-top: 50px;
       display: flex;
       flex-direction: column;
       align-items: center;
@@ -81,10 +82,8 @@ const CarrinhoStyle = styled.div`
             justify-content: center;
           }
         }
-        @media only screen and (max-width: 1100px) {
-          li {
-            text-align: center;
-          }
+        li {
+          text-align: center;
         }
       }
       h1 {

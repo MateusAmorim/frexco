@@ -31,11 +31,13 @@ const Carrinho = () => {
       .toFixed(2);
   };
 
-  const quantidadeTotal = () => {};
+  const quantidadeTotal = () => {
+    return carrinho.length;
+  };
 
   React.useEffect(() => {
     setTotal(precoTotal());
-    quantidadeTotal(setQuantidade('a fazer'));
+    setQuantidade(quantidadeTotal());
   }, [carrinho]);
 
   return (
@@ -82,7 +84,7 @@ const Carrinho = () => {
                   Total: <span className="total">{`R$: ${total}`}</span>
                 </li>
                 <li>
-                  Quantidade: <span>{quantidade}</span>
+                  Produtos: <span>{quantidade}</span>
                 </li>
                 <li className="limpar" onClick={() => clearItem()}>
                   <span className="limpar">Limpar</span>

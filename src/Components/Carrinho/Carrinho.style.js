@@ -54,14 +54,32 @@ const CarrinhoStyle = styled.div`
           button {
             border: none;
             background-color: #87f;
-            padding: 5px 10px;
+            padding: 2.5px 10px;
             color: #fff;
             font-size: 1.275rem;
             margin: 0 5px;
+            border-radius: 5px;
           }
           @media only screen and (max-width: 800px) {
             padding: 25px 50px;
           }
+        }
+      }
+    }
+    .finalizar {
+      margin-top: 100px;
+      h1 {
+        margin-bottom: 20px;
+      }
+      span {
+        color: #87e;
+        &.limpar {
+          background-color: #87e;
+          cursor: pointer;
+          color: #fff;
+          border-radius: 5px;
+          padding: 10px 20px;
+          transition: all 0.2s;
         }
       }
     }

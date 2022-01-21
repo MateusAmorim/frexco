@@ -32,13 +32,11 @@ const Carrinho = () => {
     );
   };
 
-  const quantidadeTotal = () => {
-    setQuantidade(0);
-  };
+  const quantidadeTotal = () => {};
 
   React.useEffect(() => {
     setTotal(precoTotal());
-    quantidadeTotal();
+    quantidadeTotal(setQuantidade('a fazer'));
   }, [carrinho]);
 
   return (
@@ -54,16 +52,14 @@ const Carrinho = () => {
                     Produto: <span>{cart.name}</span>
                   </li>
                   <li>
-                    Quantidade: <button>+</button>
+                    Quantidade: <button>-</button>
                     <span>0</span>
-                    <button>-</button>
+                    <button>+</button>
                   </li>
                   <li>
                     Preço: <span>{cart.preco}</span>
                   </li>
                   <li>
-                    {/* <CarrinhoSvg handleRemove={() => cart.index === index && console.log('remover' + cart.index, index)} /> */}
-                    {/* handleRemove={([...carrinho], carrinho.splice(index, 1))} */}
                     <svg
                       onClick={() => deleteItem(cart)}
                       width="20px"
@@ -88,9 +84,15 @@ const Carrinho = () => {
             <div className="finalizar">
               <h1>Finalizar pedido</h1>
               <ul>
-                <li>Total: R$: {total}</li>
-                <li>Quantidade: {quantidade}</li>
-                <li onClick={() => clearItem()}>Limpar</li>
+                <li>
+                  Total: <span className="total">{`R$: ${total}`}</span>
+                </li>
+                <li>
+                  Quantidade: <span>{quantidade}</span>
+                </li>
+                <li className="limpar" onClick={() => clearItem()}>
+                  <span className="limpar">Limpar</span>
+                </li>
               </ul>
             </div>
           </div>

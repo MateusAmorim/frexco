@@ -51,6 +51,14 @@ const CarrinhoStyle = styled.div`
             color: #87f;
             font-weight: 600;
           }
+          button {
+            border: none;
+            background-color: #87f;
+            padding: 5px 10px;
+            color: #fff;
+            font-size: 1.275rem;
+            margin: 0 5px;
+          }
           @media only screen and (max-width: 800px) {
             padding: 25px 50px;
           }

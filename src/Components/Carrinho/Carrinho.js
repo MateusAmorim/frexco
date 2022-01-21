@@ -27,7 +27,9 @@ const Carrinho = () => {
                     Produto: <span>{cart.name}</span>
                   </li>
                   <li>
-                    Quantidade: <span>0</span>
+                    Quantidade: <button>+</button>
+                    <span>0</span>
+                    <button>-</button>
                   </li>
                   <li>
                     Preço: <span>{cart.preco}</span>
@@ -37,6 +39,14 @@ const Carrinho = () => {
                   </li>
                 </ul>
               ))}
+            <div className="finalizar">
+              <h1>Finalizar pedido</h1>
+              <ul>
+                <li>Total: R$: 00,00</li>
+                <li>Quantidade: 0</li>
+                <li>Limpar</li>
+              </ul>
+            </div>
           </div>
         ) : (
           <div className="nothing">

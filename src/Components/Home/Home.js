@@ -9,6 +9,8 @@ const Home = () => {
   const [loading, setLoading] = React.useState(true);
   const { produto, setProduto } = React.useContext(UserContext);
   const navigate = useNavigate();
+  const [search, setSearch] = React.useState('');
+  const [filtro, setFiltro] = React.useState(null);
 
   React.useEffect(() => {
     if (produto.index >= 0) {
@@ -28,6 +30,12 @@ const Home = () => {
     window.scrollTo(0, 0);
   }, []);
 
+  const handleSearch = (event) => {
+    event.preventDefault();
+    const filtroSearch = dados.filter((i) => i.name === search);
+    setFiltro(filtroSearch);
+  };
+
   return (
     <HomeStyle>
       {loading ? (
@@ -42,37 +50,68 @@ const Home = () => {
           <div className="listagem">
             <div className="search">
               <label htmlFor="">Produtos</label>
-              <form>
-                <input type="text" placeholder="Buscar..." />
+              <form onSubmit={handleSearch}>
+                <input
+                  type="text"
+                  placeholder="Buscar..."
+                  value={search}
+                  onChange={(event) => setSearch(event.target.value)}
+                />
                 <button>
                   <SearchSvg />
                 </button>
               </form>
             </div>
             <div className="produtos">
-              {dados.map(({ name, id, image, preco, nutritions }, index) => (
-                <div className="container" key={id}>
-                  <img src={image.src} alt={image.alt} />
-                  <section>
-                    <p>{preco}</p>
-                    <h1>{name}</h1>
-                    <button
-                      onClick={() =>
-                        setProduto({
-                          index,
-                          name,
-                          id,
-                          preco,
-                          nutritions,
-                          image,
-                        })
-                      }
-                    >
-                      Informações nutricionais
-                    </button>
-                  </section>
-                </div>
-              ))}
+              {filtro && filtro.length >= 1
+                ? filtro.map(
+                    ({ name, id, image, preco, nutritions }, index) => (
+                      <div className="container" key={id}>
+                        <img src={image.src} alt={image.alt} />
+                        <section>
+                          <p>{preco}</p>
+                          <h1>{name}</h1>
+                          <button
+                            onClick={() =>
+                              setProduto({
+                                index,
+                                name,
+                                id,
+                                preco,
+                                nutritions,
+                                image,
+                              })
+                            }
+                          >
+                            Informações nutricionais
+                          </button>
+                        </section>
+                      </div>
+                    ),
+                  )
+                : dados.map(({ name, id, image, preco, nutritions }, index) => (
+                    <div className="container" key={id}>
+                      <img src={image.src} alt={image.alt} />
+                      <section>
+                        <p>{preco}</p>
+                        <h1>{name}</h1>
+                        <button
+                          onClick={() =>
+                            setProduto({
+                              index,
+                              name,
+                              id,
+                              preco,
+                              nutritions,
+                              image,
+                            })
+                          }
+                        >
+                          Informações nutricionais
+                        </button>
+                      </section>
+                    </div>
+                  ))}
             </div>
           </div>
         )

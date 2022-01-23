@@ -4,10 +4,13 @@ import ProdutoStyle from './Produto.style';
 import CarrinhoSvg from './CarrinhoSvg';
 
 const Produto = () => {
-  const { produto, carrinho, setCarrinho } = React.useContext(UserContext);
+  const { produto, setProduto, carrinho, setCarrinho } = React.useContext(UserContext);
 
   React.useEffect(() => {
     window.scrollTo(0, 0);
+    return () => {
+      setProduto({});
+    };
   }, []);
 
   const handleAdd = () => {

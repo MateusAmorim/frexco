@@ -15,7 +15,18 @@ const Produto = () => {
   }, []);
 
   const handleAdd = () => {
-    setCarrinho([...carrinho, produto]);
+    const hasDuplicate = carrinho.find((item) => item.id === produto.id);
+    if (hasDuplicate) {
+      setCarrinho(
+        carrinho.map((item) =>
+          item.id === produto.id
+            ? { ...hasDuplicate, amount: hasDuplicate.amount + 1 }
+            : item,
+        ),
+      );
+    } else {
+      setCarrinho([...carrinho, { ...produto, amount: 1 }]);
+    }
   };
 
   return (

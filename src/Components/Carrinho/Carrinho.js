@@ -21,14 +21,21 @@ const Carrinho = () => {
   };
 
   const precoTotal = () => {
-    const precoLimpo = carrinho.map(
-      (item) =>
-        +item.preco.replace('R$', '').replace(':', '').replace(',', '.').trim(),
-    );
+    const totalLimpo = carrinho.map((item) => {
+      const preco = +item.preco
+        .replace('R$', '')
+        .replace(':', '')
+        .replace(',', '.')
+        .trim();
+      const total = preco * item.amount;
+      return total;
+    });
 
-    return Object.keys(precoLimpo)
-      .reduce((sum, key) => sum + parseFloat(precoLimpo[key] || 0), 0)
-      .toFixed(2);
+    setTotal(
+      Object.keys(totalLimpo)
+        .reduce((sum, key) => sum + parseFloat(totalLimpo[key] || 0), 0)
+        .toFixed(2),
+    );
   };
 
   const quantidadeTotal = () => {
@@ -36,9 +43,39 @@ const Carrinho = () => {
   };
 
   React.useEffect(() => {
-    setTotal(precoTotal());
+    precoTotal();
     setQuantidade(quantidadeTotal());
   }, [carrinho]);
+
+  const decrement = (cart) => {
+    const hasDuplicate = carrinho.find((item) => item.id === cart.id);
+    if (hasDuplicate.amount === 1) {
+      setCarrinho(carrinho.filter((item) => item.id !== cart.id));
+    } else {
+      setCarrinho(
+        carrinho.map((item) =>
+          item.id === cart.id
+            ? { ...hasDuplicate, amount: hasDuplicate.amount - 1 }
+            : item,
+        ),
+      );
+    }
+  };
+
+  const increment = (cart) => {
+    const hasDuplicate = carrinho.find((item) => item.id === cart.id);
+    if (hasDuplicate) {
+      setCarrinho(
+        carrinho.map((item) =>
+          item.id === cart.id
+            ? { ...hasDuplicate, amount: hasDuplicate.amount + 1 }
+            : item,
+        ),
+      );
+    } else {
+      setCarrinho([...carrinho, { ...cart, amount: 1 }]);
+    }
+  };
 
   return (
     <CarrinhoStyle>
@@ -54,6 +91,12 @@ const Carrinho = () => {
                   </li>
                   <li>
                     Preço: <span>{cart.preco}</span>
+                  </li>
+                  <li className="amount">
+                    Quantidade:
+                    <button onClick={() => decrement(cart)}>-</button>
+                    <p>{cart.amount}</p>
+                    <button onClick={() => increment(cart)}>+</button>
                   </li>
                   <li>
                     <svg

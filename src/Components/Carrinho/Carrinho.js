@@ -11,42 +11,6 @@ const Carrinho = () => {
     window.scrollTo(0, 0);
   }, []);
 
-  const deleteItem = (cart) => {
-    const cartRemove = carrinho.filter((item) => item.name !== cart.name);
-    setCarrinho(cartRemove);
-  };
-
-  const clearItem = () => {
-    setCarrinho([]);
-  };
-
-  const precoTotal = () => {
-    const totalLimpo = carrinho.map((item) => {
-      const preco = +item.preco
-        .replace('R$', '')
-        .replace(':', '')
-        .replace(',', '.')
-        .trim();
-      const total = preco * item.amount;
-      return total;
-    });
-
-    setTotal(
-      Object.keys(totalLimpo)
-        .reduce((sum, key) => sum + parseFloat(totalLimpo[key] || 0), 0)
-        .toFixed(2),
-    );
-  };
-
-  const quantidadeTotal = () => {
-    return carrinho.length;
-  };
-
-  React.useEffect(() => {
-    precoTotal();
-    setQuantidade(quantidadeTotal());
-  }, [carrinho]);
-
   const decrement = (cart) => {
     const hasDuplicate = carrinho.find((item) => item.id === cart.id);
     if (hasDuplicate.amount === 1) {
@@ -76,6 +40,42 @@ const Carrinho = () => {
       setCarrinho([...carrinho, { ...cart, amount: 1 }]);
     }
   };
+
+  const deleteItem = (cart) => {
+    const cartRemove = carrinho.filter((item) => item.name !== cart.name);
+    setCarrinho(cartRemove);
+  };
+
+  const clearItem = () => {
+    setCarrinho([]);
+  };
+
+  const precoTotal = () => {
+    const totalLimpo = carrinho.map((item) => {
+      const preco = +item.preco
+        .replace('R$', '')
+        .replace(':', '')
+        .replace(',', '.')
+        .trim();
+      const total = preco * item.amount;
+      return total;
+    });
+
+    setTotal(
+      Object.keys(totalLimpo)
+        .reduce((sum, key) => sum + parseFloat(totalLimpo[key] || 0), 0)
+        .toFixed(2),
+    );
+  };
+
+  const quantidadeTotal = () => {
+    setQuantidade(carrinho.length);
+  };
+
+  React.useEffect(() => {
+    precoTotal();
+    quantidadeTotal();
+  }, [carrinho]);
 
   return (
     <CarrinhoStyle>

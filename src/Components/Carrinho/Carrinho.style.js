@@ -53,6 +53,7 @@ const CarrinhoStyle = styled.div`
           font-weight: 600;
           min-width: 300px;
           text-align: center;
+          font-size: 1.2rem;
           &:last-child {
             cursor: pointer;
           }
@@ -62,6 +63,31 @@ const CarrinhoStyle = styled.div`
           }
           @media only screen and (max-width: 800px) {
             padding: 25px 50px;
+          }
+          &.amount {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: center;
+            p {
+              color: #87f;
+              font-weight: 600;
+            }
+            button {
+              cursor: pointer;
+              border: none;
+              color: #fff;
+              font-size: 1.275rem;
+              margin: 0 5px;
+              border-radius: 5px;
+              background-color: #eee;
+              color: #000;
+              width: 25px;
+              transition: 0.2s;
+              &:hover {
+                background-color: #ccc;
+              }
+            }
           }
         }
       }

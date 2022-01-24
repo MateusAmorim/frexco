@@ -106,7 +106,6 @@ const Home = () => {
                               preco,
                               nutritions,
                               image,
-                              quantidade: 0,
                             })
                           }
                         >

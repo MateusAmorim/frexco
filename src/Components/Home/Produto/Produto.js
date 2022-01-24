@@ -4,7 +4,8 @@ import ProdutoStyle from './Produto.style';
 import CarrinhoSvg from './CarrinhoSvg';
 
 const Produto = () => {
-  const { produto, setProduto, carrinho, setCarrinho } = React.useContext(UserContext);
+  const { produto, setProduto, carrinho, setCarrinho } =
+    React.useContext(UserContext);
 
   React.useEffect(() => {
     window.scrollTo(0, 0);
@@ -14,7 +15,20 @@ const Produto = () => {
   }, []);
 
   const handleAdd = () => {
-    setCarrinho([...carrinho, produto]);
+    const productExist = carrinho.find((item) => item.id === produto.id);
+    if (productExist) {
+      setCarrinho(
+        carrinho.map((item) =>
+          item.id === produto.id
+            ? { ...productExist, amount: productExist.amount + 1 }
+            : item,
+        ),
+      );
+    } else {
+      setCarrinho([...carrinho, { ...produto, amount: 1 }]);
+    }
+
+    // setCarrinho([...carrinho, { ...produto, amount: 1 }]);
   };
 
   return (

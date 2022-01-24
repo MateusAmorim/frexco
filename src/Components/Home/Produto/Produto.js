@@ -15,20 +15,7 @@ const Produto = () => {
   }, []);
 
   const handleAdd = () => {
-    const productExist = carrinho.find((item) => item.id === produto.id);
-    if (productExist) {
-      setCarrinho(
-        carrinho.map((item) =>
-          item.id === produto.id
-            ? { ...productExist, amount: productExist.amount + 1 }
-            : item,
-        ),
-      );
-    } else {
-      setCarrinho([...carrinho, { ...produto, amount: 1 }]);
-    }
-
-    // setCarrinho([...carrinho, { ...produto, amount: 1 }]);
+    setCarrinho([...carrinho, produto]);
   };
 
   return (

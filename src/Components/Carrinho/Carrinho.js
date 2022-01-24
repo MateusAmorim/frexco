@@ -21,16 +21,14 @@ const Carrinho = () => {
   };
 
   const precoTotal = () => {
-    const valores = carrinho.map((item) => {
-      const precoLimpo = +item.preco
-        .replace('R$', '')
-        .replace(':', '')
-        .replace(',', '.')
-        .trim();
-      const precoTotal = +(precoLimpo * item.amount).toFixed(2);
-      return precoTotal;
-    });
-    return valores.reduce((prev, acc) => prev + acc);
+    const precoLimpo = carrinho.map(
+      (item) =>
+        +item.preco.replace('R$', '').replace(':', '').replace(',', '.').trim(),
+    );
+
+    return Object.keys(precoLimpo)
+      .reduce((sum, key) => sum + parseFloat(precoLimpo[key] || 0), 0)
+      .toFixed(2);
   };
 
   const quantidadeTotal = () => {
@@ -56,12 +54,6 @@ const Carrinho = () => {
                   </li>
                   <li>
                     Preço: <span>{cart.preco}</span>
-                  </li>
-                  <li className="amount">
-                    Quantidade:
-                    <button>-</button>
-                    <p>{cart.amount}</p>
-                    <button>+</button>
                   </li>
                   <li>
                     <svg
